@@ -1,0 +1,55 @@
+#!/usr/bin/env python3
+#-*- coding:utf-8 -*-
+
+import json
+
+#http://blog.sina.com.cn/s/blog_ae6c02970102whng.html
+
+class imageJson():
+	REQ_START = {
+		"req":"ready",
+		"total":0,
+		"url":'',
+	}
+	
+	REQ_DOWNLOAD = {
+		"req":"download",
+		"no":0,
+		"url":"",
+		"percent":0,
+		"failed":0,
+		"status":"",
+	}
+	
+	REQ_COMPELETE = {
+		"req":"compelete",
+	}
+
+	REQ_ERROR = {
+		"req":"error",
+		"status":""
+	}
+
+	def __init__(self):
+		pass
+
+	def generateStartJson(self, url, num):
+		REQ_START["total"] = num
+		REQ_START["url"] = url
+		return json.dumps(REQ_START)
+
+	def generateDownloadJson(self, url, no, percent, failednum, status):
+		REQ_DOWNLOAD["no"] = no
+		REQ_DOWNLOAD["url"] = url
+		REQ_DOWNLOAD["percent"] = percent
+		REQ_DOWNLOAD["status"] = status
+		REQ_DOWNLOAD["failed"] = failednum
+		return json.dumps(REQ_DOWNLOAD)
+
+	def generateCompeleteJson(self):
+		return json.dumps(REQ_COMPELETE)
+
+	def generateErrorJson(self, msg):
+		REQ_ERROR["status"] = msg
+		return json.dumps(REQ_ERROR)
+

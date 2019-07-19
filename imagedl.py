@@ -1,0 +1,112 @@
+# -*- coding: utf-8 -*-
+
+# Form implementation generated from reading ui file 'imagedl.ui'
+#
+# Created by: PyQt5 UI code generator 5.11.3
+#
+# WARNING! All changes made in this file will be lost!
+
+from PyQt5 import QtCore, QtGui, QtWidgets
+
+class Ui_ImageDownloadtools(object):
+    def setupUi(self, ImageDownloadtools):
+        ImageDownloadtools.setObjectName("ImageDownloadtools")
+        ImageDownloadtools.resize(704, 576)
+        ImageDownloadtools.setToolTipDuration(-1)
+        self.centralwidget = QtWidgets.QWidget(ImageDownloadtools)
+        self.centralwidget.setObjectName("centralwidget")
+        self.btn_startdownload = QtWidgets.QPushButton(self.centralwidget)
+        self.btn_startdownload.setGeometry(QtCore.QRect(590, 60, 91, 41))
+        font = QtGui.QFont()
+        font.setPointSize(14)
+        self.btn_startdownload.setFont(font)
+        self.btn_startdownload.setObjectName("btn_startdownload")
+        self.label = QtWidgets.QLabel(self.centralwidget)
+        self.label.setGeometry(QtCore.QRect(20, 20, 211, 21))
+        font = QtGui.QFont()
+        font.setPointSize(16)
+        self.label.setFont(font)
+        self.label.setObjectName("label")
+        self.textEdit = QtWidgets.QTextEdit(self.centralwidget)
+        self.textEdit.setGeometry(QtCore.QRect(20, 60, 541, 41))
+        font = QtGui.QFont()
+        font.setPointSize(10)
+        self.textEdit.setFont(font)
+        self.textEdit.setObjectName("textEdit")
+        self.progressBar = QtWidgets.QProgressBar(self.centralwidget)
+        self.progressBar.setGeometry(QtCore.QRect(20, 520, 351, 21))
+        self.progressBar.setProperty("value", 100)
+        self.progressBar.setObjectName("progressBar")
+        self.label_total = QtWidgets.QLabel(self.centralwidget)
+        self.label_total.setGeometry(QtCore.QRect(390, 520, 41, 21))
+        font = QtGui.QFont()
+        font.setPointSize(10)
+        self.label_total.setFont(font)
+        self.label_total.setObjectName("label_total")
+        self.label_dl = QtWidgets.QLabel(self.centralwidget)
+        self.label_dl.setGeometry(QtCore.QRect(480, 520, 51, 21))
+        font = QtGui.QFont()
+        font.setPointSize(10)
+        self.label_dl.setFont(font)
+        self.label_dl.setObjectName("label_dl")
+        self.label_total_num = QtWidgets.QLabel(self.centralwidget)
+        self.label_total_num.setGeometry(QtCore.QRect(430, 520, 41, 21))
+        font = QtGui.QFont()
+        font.setPointSize(10)
+        self.label_total_num.setFont(font)
+        self.label_total_num.setObjectName("label_total_num")
+        self.label_dl_num = QtWidgets.QLabel(self.centralwidget)
+        self.label_dl_num.setGeometry(QtCore.QRect(530, 520, 41, 21))
+        font = QtGui.QFont()
+        font.setPointSize(10)
+        self.label_dl_num.setFont(font)
+        self.label_dl_num.setObjectName("label_dl_num")
+        self.btn_savepath = QtWidgets.QPushButton(self.centralwidget)
+        self.btn_savepath.setGeometry(QtCore.QRect(590, 120, 91, 41))
+        font = QtGui.QFont()
+        font.setPointSize(14)
+        self.btn_savepath.setFont(font)
+        self.btn_savepath.setAutoDefault(False)
+        self.btn_savepath.setDefault(False)
+        self.btn_savepath.setObjectName("btn_savepath")
+        self.label_failed = QtWidgets.QLabel(self.centralwidget)
+        self.label_failed.setGeometry(QtCore.QRect(590, 520, 31, 21))
+        font = QtGui.QFont()
+        font.setPointSize(10)
+        self.label_failed.setFont(font)
+        self.label_failed.setObjectName("label_failed")
+        self.label_failed_num = QtWidgets.QLabel(self.centralwidget)
+        self.label_failed_num.setGeometry(QtCore.QRect(630, 520, 31, 21))
+        font = QtGui.QFont()
+        font.setPointSize(10)
+        self.label_failed_num.setFont(font)
+        self.label_failed_num.setObjectName("label_failed_num")
+        self.listWidget = QtWidgets.QListWidget(self.centralwidget)
+        self.listWidget.setGeometry(QtCore.QRect(20, 120, 541, 381))
+        self.listWidget.setObjectName("listWidget")
+        ImageDownloadtools.setCentralWidget(self.centralwidget)
+        self.statusbar = QtWidgets.QStatusBar(ImageDownloadtools)
+        self.statusbar.setObjectName("statusbar")
+        ImageDownloadtools.setStatusBar(self.statusbar)
+
+        self.retranslateUi(ImageDownloadtools)
+        QtCore.QMetaObject.connectSlotsByName(ImageDownloadtools)
+
+    def retranslateUi(self, ImageDownloadtools):
+        _translate = QtCore.QCoreApplication.translate
+        ImageDownloadtools.setWindowTitle(_translate("ImageDownloadtools", "ImageDownloadTool"))
+        self.btn_startdownload.setText(_translate("ImageDownloadtools", "开始下载"))
+        self.label.setText(_translate("ImageDownloadtools", "请输入图片网页地址:"))
+        self.textEdit.setHtml(_translate("ImageDownloadtools", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
+"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
+"p, li { white-space: pre-wrap; }\n"
+"</style></head><body style=\" font-family:\'SimSun\'; font-size:10pt; font-weight:400; font-style:normal;\">\n"
+"<p align=\"justify\" style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-size:9pt;\"><br /></p></body></html>"))
+        self.label_total.setText(_translate("ImageDownloadtools", "一共："))
+        self.label_dl.setText(_translate("ImageDownloadtools", "已下载："))
+        self.label_total_num.setText(_translate("ImageDownloadtools", "0"))
+        self.label_dl_num.setText(_translate("ImageDownloadtools", "0"))
+        self.btn_savepath.setText(_translate("ImageDownloadtools", "保存地址"))
+        self.label_failed.setText(_translate("ImageDownloadtools", "失败："))
+        self.label_failed_num.setText(_translate("ImageDownloadtools", "0"))
+
