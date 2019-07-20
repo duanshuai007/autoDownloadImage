@@ -24,19 +24,5 @@
                 imglist = self.getImageList(html)
 ```
 
-## 通过ui文件生成py文件
-```
- pyuic.exe -o ***.py ***.ui
-```
-
-## 生成exe文件方法
-```
-在项目根目录下执行
-pyinstaller -F testqt.py
-会在根目录的dist目录下生成testqt.exe文件
-如果不想要显示控制台
-pyinstaller -Fw testqt.py
-```
-
 在第10行和第23行，用光标移动过去，或者是复制到sublime中查看，看到该行是完全的空白，这样才行。
 具体是不是这个问题所导致的我也不能完全肯定。但是我把所有行的缩进都改了以后就好使了
