@@ -25,8 +25,7 @@ class Window(QtWidgets.QMainWindow, Ui_ImageDownloadtools):
     上一次的下载链接，用来防止连续点击
     '''
     last_dl_url= ""
-    cur_save_path = ""
-        
+
     def __init__(self):
         super(Window, self).__init__()
         self.setupUi(self)
@@ -37,7 +36,7 @@ class Window(QtWidgets.QMainWindow, Ui_ImageDownloadtools):
         self.btn_opensavepath.setEnabled(False)
         self.textEdit.textChanged.connect(self.setDownloadButtonEnable)
         self.listWidget.clicked.connect(self.clickedListWidget)
-                
+
         self.timer = QBasicTimer()
         self.timer.start(5, self)
         self.recv_queue = queue.Queue(10)
@@ -51,12 +50,11 @@ class Window(QtWidgets.QMainWindow, Ui_ImageDownloadtools):
         self.label_curdlpath.setText(self.savepath)
         self.btn_opensavepath.setEnabled(True)
         print(self.savepath)
-        pass
-        
+
     '''打开图片保存的文件夹'''
     def openSaveImagePath(self):
         try:
-            cmd = "start explorer %s" % self.cur_save_path
+            cmd = "start explorer %s" % self.savepath
             os.system(cmd)
         except Exception as e:
             logging.error("open image lpath[%s] failed" % self.savepath)
@@ -71,11 +69,11 @@ class Window(QtWidgets.QMainWindow, Ui_ImageDownloadtools):
         else:
             self.btn_startdownload.setEnabled(True)
         pass
-    
+
     def clickedListWidget(self):
         logging.info("ListWidget click")
         pass
-            
+
     '''启动下载'''
     def startDownloadFunc(self):
         textmsg = self.textEdit.toPlainText()
@@ -84,56 +82,42 @@ class Window(QtWidgets.QMainWindow, Ui_ImageDownloadtools):
             if textmsg == self.last_dl_url:
                 QMessageBox.warning(self,"Warning","下载已经开始，不需要多次点击",QMessageBox.Ok)
                 return
-
             '''
             图片保存目录的生成，以self.savepath作为根目录，在该目录内创建文件夹，文件夹以年月日时分秒明明
+            更新:该目录作为图片保存的根目录，以图片链接内地title作为文件夹名
             '''
-            saveDir = time.strftime("%Y%m%d_%H%M%S", time.localtime())
-            if self.savepath:
-                '''如果设置了默认的根目录'''
-                saveDir = self.savepath + '//' + saveDir
-                if not os.path.exists(saveDir):
-                    os.mkdir(saveDir)
-                pass
-            else:
+            if not self.savepath:
+                '''没有设置默认目录'''
                 if not os.path.exists('D://'):
                     if not os.path.exists(self.DEFAULT_SAVE_DIR):
                         os.mkdir(self.DEFAULT_SAVE_DIR)
-                    saveDir = self.DEFAULT_SAVE_DIR + saveDir
+                    self.savepath = self.DEFAULT_SAVE_DIR
                 else:
-                    saveDir = 'D://autoDownloadImage//' + saveDir
-                '''没有设置默认目录'''
-                pass
-
-            if not os.path.exists(saveDir):
-                os.mkdir(saveDir)
-                           
-            saveDir = saveDir.replace('//','\\')
-            self.cur_save_path = saveDir.replace('/', '\\')
-            
+                    if not os.path.exists('D://autoDownloadImage'):
+                        os.mkdir('D://autoDownloadImage')
+                    self.savepath = 'D://autoDownloadImage'
+            logging.info("save image root dir:%s" % self.savepath)
+            self.savepath = self.savepath.replace('//','\\')
+            self.savepath = self.savepath.replace('/', '\\')
             self.last_dl_url = textmsg
-
-            self.label_curdlpath.setText(self.cur_save_path)
+            self.label_curdlpath.setText(self.savepath)
             self.listWidget.clear()
             self.label_total_num.setText("0")
             self.label_dl_num.setText("0")
             self.label_failed_num.setText("0")
             self.progressBar.setValue(0)
-
             logging.info("start download, url:%s" % textmsg)
             try:
                 self.btn_opensavepath.setEnabled(True)
-                self.gImage.start(textmsg, saveDir)
+                self.gImage.start(textmsg, self.savepath)
             except Exception as e:
                 logging.info(e.args)  
-        pass
-        
+
     def timerEvent(self, event):
         if event.timerId() == self.timer.timerId():
             if not self.recv_queue.empty():
                 msg = self.recv_queue.get()
                 msgjson = json.loads(msg)
-                #logging.info("window recv queue:%s" % msgjson)
                 if msgjson["req"] == "ready":
                     imgtotal = msgjson["total"]
                     self.label_total_num.setText(str(imgtotal))
@@ -147,7 +131,7 @@ class Window(QtWidgets.QMainWindow, Ui_ImageDownloadtools):
                     self.label_dl_num.setText(str(imgcount))
                     self.progressBar.setValue(imgdlper)
                     self.label_failed_num.setText(str(imgdlfailed))
-                    
+
                     itemcount = self.listWidget.count()
                     #logging.info("item count = %d" % itemcount)
                     if imgdlstatus == "download start":
@@ -168,6 +152,7 @@ class Window(QtWidgets.QMainWindow, Ui_ImageDownloadtools):
                     pass
                 elif msgjson["req"] == "compelete":
                     self.progressBar.setValue(0)
+                    self.last_dl_url = ''
                     pass
                 elif msgjson["req"] == "error":
                     pass
@@ -179,4 +164,3 @@ if __name__ == "__main__":
     window = Window()
     window.show()
     sys.exit(app.exec_())
-
