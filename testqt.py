@@ -152,6 +152,7 @@ class Window(QtWidgets.QMainWindow, Ui_ImageDownloadtools):
                     pass
                 elif msgjson["req"] == "compelete":
                     self.progressBar.setValue(0)
+                    self.label_dl_num.setText("Download finish")
                     self.last_dl_url = ''
                     pass
                 elif msgjson["req"] == "error":

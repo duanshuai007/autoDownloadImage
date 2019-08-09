@@ -38,8 +38,8 @@ class imageJson():
         return json.dumps(self.REQ_START)
 
     def generateDownloadJson(self, url, num, percent, failednum, status):
-        self.REQ_DOWNLOAD["count"] = num
         self.REQ_DOWNLOAD["url"] = url
+        self.REQ_DOWNLOAD["count"] = num
         self.REQ_DOWNLOAD["percent"] = percent
         self.REQ_DOWNLOAD["status"] = status
         self.REQ_DOWNLOAD["failed"] = failednum
