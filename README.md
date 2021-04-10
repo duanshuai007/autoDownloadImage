@@ -34,9 +34,21 @@
 
 > 发现如果注释语句用中文则会出现错误，但是如果用英文就没有问题。
 
+## 安装 python qt5 工具
+
+```
+pip install PyQt5-tools -i https://pypi.douban.com/simple
+```
+
+## 打开qt designer工具
+
+```
+pyqt5-tools.exe designer
+```
+
 ## 通过ui文件生成py文件
 ```
- pyuic.exe -o ***.py ***.ui
+pyuic.exe ***.ui -o ***.py
 ```
 
 ## 生成exe文件方法

@@ -1,0 +1,7 @@
+__pycache__
+build
+dist
+test/__pycache__
+test/build
+test/dist
+log

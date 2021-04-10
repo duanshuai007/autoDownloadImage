@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>704</width>
-    <height>577</height>
+    <height>799</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -23,7 +23,7 @@
       <x>590</x>
       <y>50</y>
       <width>91</width>
-      <height>41</height>
+      <height>31</height>
      </rect>
     </property>
     <property name="font">
@@ -59,7 +59,7 @@
       <x>20</x>
       <y>50</y>
       <width>541</width>
-      <height>41</height>
+      <height>31</height>
      </rect>
     </property>
     <property name="font">
@@ -79,7 +79,7 @@ p, li { white-space: pre-wrap; }
     <property name="geometry">
      <rect>
       <x>20</x>
-      <y>500</y>
+      <y>720</y>
       <width>351</width>
       <height>21</height>
      </rect>
@@ -92,7 +92,7 @@ p, li { white-space: pre-wrap; }
     <property name="geometry">
      <rect>
       <x>390</x>
-      <y>500</y>
+      <y>720</y>
       <width>41</width>
       <height>21</height>
      </rect>
@@ -110,7 +110,7 @@ p, li { white-space: pre-wrap; }
     <property name="geometry">
      <rect>
       <x>480</x>
-      <y>500</y>
+      <y>720</y>
       <width>51</width>
       <height>21</height>
      </rect>
@@ -128,7 +128,7 @@ p, li { white-space: pre-wrap; }
     <property name="geometry">
      <rect>
       <x>430</x>
-      <y>500</y>
+      <y>720</y>
       <width>41</width>
       <height>21</height>
      </rect>
@@ -146,7 +146,7 @@ p, li { white-space: pre-wrap; }
     <property name="geometry">
      <rect>
       <x>530</x>
-      <y>500</y>
+      <y>720</y>
       <width>41</width>
       <height>21</height>
      </rect>
@@ -164,9 +164,9 @@ p, li { white-space: pre-wrap; }
     <property name="geometry">
      <rect>
       <x>590</x>
-      <y>110</y>
+      <y>100</y>
       <width>91</width>
-      <height>41</height>
+      <height>31</height>
      </rect>
     </property>
     <property name="font">
@@ -188,7 +188,7 @@ p, li { white-space: pre-wrap; }
     <property name="geometry">
      <rect>
       <x>590</x>
-      <y>500</y>
+      <y>720</y>
       <width>31</width>
       <height>21</height>
      </rect>
@@ -206,7 +206,7 @@ p, li { white-space: pre-wrap; }
     <property name="geometry">
      <rect>
       <x>630</x>
-      <y>500</y>
+      <y>720</y>
       <width>31</width>
       <height>21</height>
      </rect>
@@ -220,13 +220,13 @@ p, li { white-space: pre-wrap; }
      <string>0</string>
     </property>
    </widget>
-   <widget class="QListWidget" name="listWidget">
+   <widget class="QListWidget" name="listWidget_downloadinfo">
     <property name="geometry">
      <rect>
       <x>20</x>
-      <y>100</y>
+      <y>250</y>
       <width>541</width>
-      <height>381</height>
+      <height>451</height>
      </rect>
     </property>
    </widget>
@@ -234,9 +234,9 @@ p, li { white-space: pre-wrap; }
     <property name="geometry">
      <rect>
       <x>590</x>
-      <y>170</y>
+      <y>150</y>
       <width>91</width>
-      <height>41</height>
+      <height>31</height>
      </rect>
     </property>
     <property name="text">
@@ -277,6 +277,16 @@ p, li { white-space: pre-wrap; }
     </property>
     <property name="text">
      <string/>
+    </property>
+   </widget>
+   <widget class="QListWidget" name="listWidget_wiatdownload">
+    <property name="geometry">
+     <rect>
+      <x>20</x>
+      <y>100</y>
+      <width>541</width>
+      <height>131</height>
+     </rect>
     </property>
    </widget>
   </widget>
