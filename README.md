@@ -53,6 +53,15 @@ pyuic.exe ***.ui -o ***.py
 
 ## 生成exe文件方法
 ```
+安装pyinstaller工具
+pip install pyinstaller
+然后将pyinstaller工具添加到环境变量(WIN7)
+$ which python
+/c/Users/Administrator/AppData/Local/Programs/Python/Python37/python
+一般pyinstaller就在/c/Users/Administrator/AppData/Local/Programs/Python/Python37/python/Scripts目录中
+打开"计算机->属性->高级系统设置->环境变量"，在系统变量中寻找PATH，将/c/Users/Administrator/AppData/Local/Programs/Python/Python37/python/Scripts添加到PATH的尾部。
+
+
 在项目根目录下执行
 pyinstaller -F testqt.py
 会在根目录的dist目录下生成testqt.exe文件
